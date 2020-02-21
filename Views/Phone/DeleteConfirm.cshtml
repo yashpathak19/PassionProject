@@ -1,0 +1,13 @@
+﻿@model PassionProject_PhoneBlog_n01364240.Models.Phone
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete @Model.PhoneName?</h2>
+<div class="navbar">
+    <a href="/Pet/Show/@Model.PhoneID">Cancel</a>
+</div>
+<form method="POST" action="/Phone/Delete/@Model.PhoneID">
+    <div class="inpfield"><input type="submit" value="Confirm" /></div>
+</form>
+

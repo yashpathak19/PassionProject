@@ -1,0 +1,16 @@
+﻿@model PassionProject_PhoneBlog_n01364240.Models.Brand
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+<div class="navbar">
+    <div>
+        <a class="navlink" href="/Brand/List"><button type="button" class="btn btn-success">Back to List</button></a>
+        <a class="navlink" href="/Brand/Update/@Model.BrandID"><button type="button" class="btn btn-primary">Update</button></a>
+        <a class="navlink" href="/Brand/DeleteConfirm/@Model.BrandID"><button type="button" class="btn btn-danger">Delete</button></a>
+    </div>
+</div>
+<div>
+    <span>Name : </span>@Model.BrandName
+</div>

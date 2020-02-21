@@ -1,0 +1,32 @@
+﻿@model List<PassionProject_PhoneBlog_n01364240.Models.Phone>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Phones</h2>
+<div class="navbar">
+    <a class="navlink" href="/Phone/Add"><button type="button" class="btn btn-primary">Add</button></a>
+</div>
+<form action="/Phone/List" method="GET">
+    <input type="text" name="searchphonekey" id="searchphonekey" />
+    <input type="submit" value="Search" />
+</form>
+<div class="row">
+    @{
+        foreach (var Phone in Model)
+        {
+            <div class="column">
+                    <div class="cardlayout">
+                        <div><a href="/Phone/Show/@Phone.PhoneID">@Phone.PhoneName</a></div>
+                        <div>Release Date : <span>@Phone.PhoneReleaseDate</span></div>
+                        <div>Weight : <span>@(Phone.PhoneWeight)g</span></div>
+                        <div>Battery : <span>@(Phone.PhoneBattery)mAh</span></div>
+                        <span><a href="/Phone/Update/@Phone.PhoneID"><button type="button" class="btn btn-primary">Update</button></a></span>
+                    </div>
+                <div style="clear:both;"></div>
+            </div>
+        }
+    }
+    <div style="clear:both;"></div>
+</div>

@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<div class="navbar">
+    <a href="/Feature/Add">Add New</a>
+</div>
+<form method="GET" action="/Feature/List">
+    <input type="text" id="searchfeaturekey" name="searchfeaturekey" />
+    <input type="submit" value="Search" />
+</form>
+<div class="row">
+    @{
+        foreach (var feature in @Model)
+        {
+
+            <div class="column">
+                <div class="cardlayout">
+                    <a href="/Feature/Show/@feature.FeatureID">@feature.FeatureName</a>
+                    <a class="cta" href="/Feature/Update/@feature.FeatureID"><button type="button" class="btn btn-primary">Update</button></a>
+                </div>
+            </div>
+        }
+    }
+</div>
+

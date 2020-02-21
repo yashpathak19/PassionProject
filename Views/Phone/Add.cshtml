@@ -1,0 +1,30 @@
+﻿@model  List<PassionProject_PhoneBlog_n01364240.Models.Brand>
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add a New Phone</h2>
+<div class="navbar">
+    <a class="navlink" href="/Phone/List">Back to List</a>
+</div>
+<form method="POST" action="/Phone/Add">
+    <div class="inpfield"><span>Name:</span><input id="PhoneName" type="text" name="PhoneName" /></div>
+    <div class="inpfield">
+        <span>Brand:</span>
+        <select id="BrandID" type="text" name="BrandID">
+            @{
+                foreach (var brand in Model)
+                {
+                    <option value="@brand.BrandID">@brand.BrandName</option>
+
+                }
+            }
+        </select>
+    </div>
+    <div class="inpfield"><span>PhoneWeight (g):</span><input id="PhoneWeight" type="text" name="PhoneWeight" /></div>
+    <div class="inpfield"><span>Release Date:</span><input id="PhoneReleaseDate" type="text" name="PhoneReleaseDate" /></div>
+    <div class="inpfield"><span>Battery</span><input id="PhoneBattery" type="text" name="PhoneBattery" /></div>
+    <div class="inpfield">
+        <input type="submit" value="Add Phone">
+    </div>
+</form>

@@ -1,0 +1,15 @@
+﻿@model PassionProject_PhoneBlog_n01364240.Models.Feature
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+<div class="navbar">
+    <a class="navlink" href="/Feature/List">Back to List</a>
+    <a class="navlink" href="/Feature/Update/@Model.FeatureID">Update</a>
+    <a class="navlink" href="/Feature/DeleteConfirm/@Model.FeatureID">Delete</a>
+</div>
+<div>
+    <span>Name : </span>@Model.FeatureName
+    <span>Details : </span>@Model.FeatureDetails
+</div>

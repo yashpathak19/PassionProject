@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "New";
+}
+
+<h2>Add</h2>
+<a href="/Feature/List" class="navlink">Back to List</a>
+<form method="POST" action="/Feature/Add">
+    <div class="inpfield"><span>Name:</span><input type="text" id="FeatureName" name="FeatureName" /></div>
+    <div class="inpfield">
+        <span>Details:</span>
+        <textarea id="FeatureDetails" name="FeatureDetails">
+        </textarea>
+    </div>
+    <div class="inpfield"><input type="submit" value="Add New Feature" /></div>
+</form>

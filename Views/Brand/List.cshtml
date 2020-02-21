@@ -1,0 +1,33 @@
+﻿@model List<PassionProject_PhoneBlog_n01364240.Models.Brand>
+
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Brand List</h2>
+<div class="navbar">
+    <a href="/Brand/Add">
+        <button type="button" class="btn btn-success">Add Brands</button>
+    </a>
+</div>
+
+<form method="GET" action="/Brand/List">
+    <input type="text" id="searchbrandkey" name="searchbrandkey" />
+    <input type="submit" value="Search" />
+</form>
+<div class="row">
+        @{
+            foreach (var brand in @Model)
+            {
+            <div class="column">
+                <div class="cardlayout">
+                    <h3><a href="/Brand/Show/@brand.BrandID">@brand.BrandName</a></h3>
+                    <a class="cta" href="/Brand/Update/@brand.BrandID"><button type="button" class="btn btn-primary">Update</button></a>
+                    
+                </div>
+            </div>
+            }
+        }
+</div>
+

@@ -1,0 +1,15 @@
+﻿@model PassionProject_PhoneBlog_n01364240.Models.Feature
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update @Model.FeatureName</h2>
+<a href="/Brand/List">Back to List</a>
+
+<form method="post" action="/Feature/Update/@Model.FeatureID">
+    <input type="text" id="FeatureName" name="FeatureName" value="@Model.FeatureName" />
+    <textarea id="FeatureDetails" name="FeatureDetails">@Model.FeatureDetails
+    </textarea>
+    <input type="submit" value="Update Feature" />
+</form>
+

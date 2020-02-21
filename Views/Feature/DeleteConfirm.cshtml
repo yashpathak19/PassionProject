@@ -1,0 +1,12 @@
+﻿@model PassionProject_PhoneBlog_n01364240.Models.Feature
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Are you sure you want to delete @Model.FeatureName?</h2>
+<div class="navbar">
+    <a href="/Feature/Show/@Model.FeatureID">Cancel</a>
+</div>
+<form method="POST" action="/Feature/Delete/@Model.FeatureID">
+    <div class="inpfield"><input type="submit" value="Confirm" /></div>
+</form>

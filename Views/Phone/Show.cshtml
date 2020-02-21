@@ -1,0 +1,54 @@
+﻿@model PassionProject_PhoneBlog_n01364240.Models.ViewModels.ShowPhone
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show Phone</h2>
+<div class="navbar">
+    <a href="/Phone/List"><button type="button" class="btn btn-success">Back to List</button></a>
+    <a href="/Phone/Update/@Model.phone.PhoneID"><button type="button" class="btn btn-primary">Update</button></a>
+    <a href="/Phone/DeleteConfirm/@Model.phone.PhoneID"><button type="button" class="btn btn-danger">Delete</button></a>
+</div>
+<div>
+
+    <div class="col2">
+        <div>Name : @Model.phone.PhoneName</div>
+        <div>Release Date : @(Model.phone.PhoneReleaseDate)</div>
+        <div>Weight : @Model.phone.PhoneWeight gm</div>
+        <div>Battery : @Model.phone.PhoneBattery mAh</div>
+    </div>
+
+    <div class="col2last">
+        <div class="sectionheader">Features:</div>
+        @{
+
+            foreach (var feature in @Model.features)
+            {
+                <div class="lineitem">
+                    <a href="/Feature/Show/@feature.FeatureID">@feature.FeatureName</a>
+                    <a href="/Phone/DetachFeature/@Model.phone.PhoneID?FeatureID=@feature.FeatureID">
+                        <button type="button" class="btn btn-danger">Remove</button>
+                    </a>
+                </div>
+            }
+
+        }
+        <form method="post" action="/Phone/AttachFeature/@Model.phone.PhoneID">
+            <select name="FeatureID" id="FeatureID">
+                @{
+                    //prompt for user to add another pet to an owner record
+
+                    foreach (var feature in Model.all_features)
+                    {
+                        <option value="@feature.FeatureID">
+                            @feature.FeatureName
+                        </option>
+                    }
+                }
+            </select>
+            <input type="submit" value="Add Feature" />
+        </form>
+    </div>
+    <div style="clear:both;"></div>
+</div>

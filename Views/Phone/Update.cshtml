@@ -1,0 +1,39 @@
+﻿@model PassionProject_PhoneBlog_n01364240.Models.ViewModels.UpdatePhone
+
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Updating Phone</h2>
+
+<div class="navbar">
+    <a class="navlink" href="/Phone/List">Back to List</a>
+</div>
+<div>
+    <div class="col2">
+        <form method="post" action="/Phone/Update/@Model.Phone.PhoneID">
+            <div><span>Phone:</span><input type="text" name="PhoneName" id="PhoneName" value="@Model.Phone.PhoneName" /></div>
+            <div><span>Release Date:</span><input type="text" name="PhoneReleaseDate" id="PhoneReleaseDate" value="@Model.Phone.PhoneReleaseDate" /></div>
+            <div><span>Battery:</span><input type="text" name="PhoneBattery" id="PhoneBattery" value="@Model.Phone.PhoneBattery" /></div>
+            <div><span>Weight:</span><input type="text" name="PhoneWeight" id="PhoneWeight" value="@Model.Phone.PhoneWeight" /></div>
+            <div>
+                <span>Brands: </span>
+                <select id="BrandID" name="BrandID">
+                    @foreach (var brands in Model.Brands)
+                    {
+                        var selected = "";
+                        if (Model.Phone.BrandID == brands.BrandID)
+                        {
+                            selected = "selected";
+                        }
+                        <option value="@brands.BrandID" @selected>@brands.BrandName</option>
+                    }
+                </select>
+            </div>
+            <input type="submit" value="Update Phone" />
+        </form>
+    </div>
+    <div class="col2last"></div>
+    <div style="clear:both;"></div>
+</div>
